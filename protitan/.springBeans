@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.8.3.201612191259-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>WebContent/WEB-INF/protitan-servlet.xml</config>
+		<config>src/com/dn/protitan/config/job-context.xml</config>
+	</configs>
+	<autoconfigs>
+		<config>src/com/dn/protitan/config/dao-context.xml</config>
+		<config>src/com/dn/protitan/config/service-context.xml</config>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>
