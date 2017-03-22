@@ -30,6 +30,7 @@ public class DashboardBoxController {
 	public String showDashboardBox(Model model){
 		//List<DashboardBox> dashboardBoxV = dashboardBoxService.getCurrent();
 		//test
+		String test = "test";
 		return "dashboardbox";
 	}
 	
