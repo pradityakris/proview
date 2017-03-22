@@ -29,6 +29,7 @@ public class DashboardBoxController {
 	@RequestMapping("/AtmStatus")
 	public String showDashboardBox(Model model){
 		//List<DashboardBox> dashboardBoxV = dashboardBoxService.getCurrent();
+		//test
 		return "dashboardbox";
 	}
 	
