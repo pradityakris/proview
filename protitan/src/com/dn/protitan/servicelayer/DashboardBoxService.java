@@ -18,8 +18,8 @@ public class DashboardBoxService {
 		this.dashboardBoxDao = dashboardBoxDao;
 	}
 	
-	public List<DashboardBox> getCurrent(){
-		return dashboardBoxDao.getData();
+	public List<DashboardBox> getCurrent(String hierarchy){
+		return dashboardBoxDao.getData(hierarchy);
 	
 	}
 

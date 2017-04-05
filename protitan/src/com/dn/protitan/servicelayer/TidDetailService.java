@@ -18,7 +18,7 @@ public class TidDetailService {
 		this.tidDetailDao = tidDetailDao;
 	}
 	
-	public List<TidDetail> getCurrent(String TerminalStatus){
-		return tidDetailDao.getData(TerminalStatus);
+	public List<TidDetail> getCurrent(String TerminalStatus, String hierarchy){
+		return tidDetailDao.getData(TerminalStatus,hierarchy);
 	}
 }

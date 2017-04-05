@@ -21,16 +21,16 @@ public class TidDetailDao {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
 	
-	public List<TidDetail> getData(String TerminalStatus){
+	public List<TidDetail> getData(String TerminalStatus, String hierarchy){
 		
 		String sqlStatement = null;
 		if(TerminalStatus.equals("inservice")||TerminalStatus.equals("outofservice")
 		||TerminalStatus.equals("inactive")||TerminalStatus.equals("inprogress")){
 //			for get group data example = inservice, outofservice, inactive and inprogress
-			sqlStatement = "SELECT * FROM TerminalDetail2 ('"+TerminalStatus+"')";
+			sqlStatement = "SELECT * FROM problemdetail2 ('"+TerminalStatus+"','"+hierarchy+"')";
 		}else {
 //			for get per status
-			sqlStatement = "SELECT * FROM TerminalDetail ('"+TerminalStatus+"')";
+			sqlStatement = "SELECT * FROM problemdetail ('"+TerminalStatus+"','"+hierarchy+"')";
 		}
 		return jdbc.query(sqlStatement, new RowMapper<TidDetail>(){
 			

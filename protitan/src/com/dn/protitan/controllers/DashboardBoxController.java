@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.dn.protitan.dao.DashboardBox;
 import com.dn.protitan.servicelayer.DashboardBoxService;
@@ -34,8 +35,8 @@ public class DashboardBoxController {
 	
 	@RequestMapping(value = "/updateDataBox", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public String updateDataBox(){
-		List<DashboardBox> dashboardBoxV = dashboardBoxService.getCurrent();
+	public String updateDataBox(@RequestParam(value = "hierarchy", required = false, defaultValue = "") String hierarchy){
+		List<DashboardBox> dashboardBoxV = dashboardBoxService.getCurrent(hierarchy);
 		
 		Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
 		

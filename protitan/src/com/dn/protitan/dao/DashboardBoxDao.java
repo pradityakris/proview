@@ -20,8 +20,9 @@ public class DashboardBoxDao {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
 	
-	public List <DashboardBox> getData(){
-		return jdbc.query("EXEC GetDataForDashboardBox", new RowMapper<DashboardBox>(){
+	public List <DashboardBox> getData(String hierarchy){
+//		return jdbc.query("EXEC GetDataForDashboardBox @hier='"+hierarchy+"'", new RowMapper<DashboardBox>(){
+			return jdbc.query("EXEC getatmstatus @hier='"+hierarchy+"'", new RowMapper<DashboardBox>(){
 			@Override
 			public DashboardBox mapRow(ResultSet rs, int rowNum) throws SQLException{
 				DashboardBox dashboardBox = new DashboardBox();

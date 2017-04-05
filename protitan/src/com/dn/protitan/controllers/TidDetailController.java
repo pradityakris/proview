@@ -28,30 +28,31 @@ public class TidDetailController {
 	@RequestMapping("/TidDetail")
 	public String getTidDetail(
 			@RequestParam(value = "terminalStatus", required = false, defaultValue= "")
-			String terminalStatus, Model model){
-		List<TidDetail> tidDetail = tidDetailService.getCurrent(terminalStatus);
-		
+			String terminalStatus, 
+			@RequestParam(value = "hier", required = false, defaultValue= "")
+			String hier,Model model){
+		List<TidDetail> tidDetail = tidDetailService.getCurrent(terminalStatus,hier);
 		model.addAttribute("tidDetail", tidDetail);
-		
+		model.addAttribute("hier",hier);
 		model.addAttribute("terminalStatus", terminalStatus);
 		
 		return "tiddetail";
 	}
 	
-	@RequestMapping(value="/updateTidDetail", method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody
-	public String updateTidDetail(
-		@RequestParam(value = "tidStatus", required = false, defaultValue = "") 
-		String tidStatus, Model model){
-		
-		List<TidDetail> tidDetail = tidDetailService.getCurrent(tidStatus);
-		
-		model.addAttribute("tidStatus", tidStatus);
-		
-		Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
-		
-		return gson1.toJson(tidDetail);
-	}
+//	@RequestMapping(value="/updateTidDetail", method = RequestMethod.GET, produces = "application/json")
+//	@ResponseBody
+//	public String updateTidDetail(
+//		@RequestParam(value = "tidStatus", required = false, defaultValue = "") 
+//		String tidStatus, Model model){
+//		
+//		List<TidDetail> tidDetail = tidDetailService.getCurrent(tidStatus);
+//		
+//		model.addAttribute("tidStatus", tidStatus);
+//		
+//		Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
+//		
+//		return gson1.toJson(tidDetail);
+//	}
 	
 	
 }

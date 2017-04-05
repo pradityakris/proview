@@ -255,6 +255,7 @@
 		updatePage();
 		lastUpdateTime();
 		serverTime();
+		href();
 		window.setInterval(updatePage, 5000);
 		window.setInterval(lastUpdateTime, 5000);
 		window.setInterval(serverTime, 1000);
@@ -503,7 +504,7 @@
             <div class="widget-container stats-container fluid-height clearfix">
               <div class="col-md-12 col-lg-4 col-sm-12">
               
-              <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=inservice" target="_blank">
+              <a id="inserviceurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=inservice" target="_blank">
                 <div class="number" style="color:#60c560">
                   <span id="inservice"> 0</span>
                 </div>
@@ -513,7 +514,7 @@
                 </a>
               </div>
               <div class="col-md-12 col-lg-4 col-sm-12">
-              <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=normal" target="_blank">
+              <a id="normalurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=normal" target="_blank">
                 <div class="number" style="color:#60c560">
                   <span id="normal">0</span>
                 </div>
@@ -523,7 +524,7 @@
                 </a>
               </div>
               <div class="col-md-12 col-lg-4 col-sm-12">
-              <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=sleep" target="_blank">
+              <a id = "sleepurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=sleep" target="_blank">
                 <div class="number" style="color:#60c560">
                   <span id="sleep">0</span>
                 </div>
@@ -541,7 +542,7 @@
           <div class="col-lg-6 col-md-12 col-sm-12">
            <div class="widget-container stats-container fluid-height clearfix" >
               <div class="col-lg-4 col-md-4 col-sm-12" style="height :200px;">
-              <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=outofservice" target="_blank">
+              <a id="outofserviceurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=outofservice" target="_blank">
                 <div style="color:red">
     				          <p style="padding-top:40px;">
                           OUT OF SERVICE
@@ -553,47 +554,47 @@
   				      </div>
   				 </a>
               </div>
-              <div class="col-md-2" style="height :200px;">
-              <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=inprogress" target="_blank">
-                <div style="color:red">
+           <div class="col-md-2" style="height :200px; background-color:#e54c42;">
+              <a id="inprogressurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=inprogress" target="_blank" style="background-color:#e54c42">
+                <div style="color:white; background-color:#e54c42">
 				          <p style="padding-top:40px; font-size: 0.9em;">
                      IN PROGRESS
                  </p>
                  <i class="fa fa-spinner" style="font-size: 2em;"></i>
-                 <div class="number" style="font-size: 2em; color:red">
+                 <div class="number" style="font-size: 2em; color:white">
                       <b><span id="inprogress">0</span></b>
                  </div>
 				</div>
 				</a>
               </div>
-              <div class="col-md-2" style="height :200px;">
-              <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=maintenance" target="_blank">
-                <div style="color:red">
+              <div class="col-md-2" style="height :200px; background-color:#e54c42;">
+              <a id="maintenanceurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=maintenance" target="_blank" style="background-color:#e54c42">
+                <div style="color:white; background-color:#e54c42;">
 				<p style="padding-top:40px; font-size: 0.9em; center">
                      MAINTENANCE
                  </p>
                  <i class="fa fa-wrench" style="font-size: 2em;"></i>
-                 <div class="number" style="font-size: 2em; color:red">
+                 <div class="number" style="font-size: 2em; color:white">
                      <b><span id="maintenance">0</span></b>
                  </div>
 				        </div>
 				 </a>
               </div>
-			    <div class="col-md-2" style="height :200px;">
-			    <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=restock" target="_blank">
-                <div style="color:red">
+			    <div class="col-md-2" style="height :200px; background-color:#e54c42;">
+			    <a id="restockurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=restock" target="_blank" style="background-color:#e54c42">
+                <div style="color:white; background-color:#e54c42;">
 				          <p style="padding-top:40px; font-size: 0.9em;">
                      RE STOCK
                   </p>
                  <i class="fa fa-stack-overflow" style="font-size: 2em;"></i>
-                 <div class="number" style="font-size: 2em; color:red">
+                 <div class="number" style="font-size: 2em; color:white">
                       <b><span id="restock">0</span></b>
                  </div>
 				        </div>
 				 </a>
               </div>
 			  <div class="col-md-2">
-			  <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=outofcash" target="_blank">
+			  <a id="outofcashurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=outofcash" target="_blank">
                <div style="color:red">
 				          <p style="padding-top:40px; font-size: 0.9em;" style="height :200px;">
                      OUT OF CASH
@@ -610,7 +611,7 @@
 		        <div class="col-lg-6">
             <div class="widget-container stats-container fluid-height clearfix">
               <div class="col-md-2" style="height :200px;">
-              <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=hardware" target="_blank">
+              <a id="hardwareurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=hardware" target="_blank">
                 <div style="color:red">
 				          <p style="padding-top:40px; font-size: 0.9em;">
                      HARDWARE
@@ -623,7 +624,7 @@
 				      </a>
               </div>
               <div class="col-md-2" style="height :200px;">
-              <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=flm" target="_blank">
+              <a id="flmurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=flm" target="_blank">
                  <div style="color:red">
 				          <p style="padding-top:40px; font-size: 0.9em;">
                      FLM
@@ -636,7 +637,7 @@
 				</a>
               </div>
 			   <div class="col-md-2" style="height :200px;">
-			   <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=comm" target="_blank">        
+			   <a id="commurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=comm" target="_blank">        
                 <div style="color:red">
 				          <p style="padding-top:40px; font-size: 0.9em;">
                      COMM.
@@ -649,7 +650,7 @@
 				</a>
               </div>
               <div class="col-md-2" style="height :200px;">
-              <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=infrastructure" target="_blank">
+              <a id="infrastructureurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=infrastructure" target="_blank">
                  <div style="color:red">
 				          <p style="padding-top:40px; font-size: 0.9em;">
                      INFRA.
@@ -663,7 +664,7 @@
 				</a>
               </div>
 			  <div class="col-md-2" style="height :200px;">
-               <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=electricity" target="_blank">
+               <a id="electricityurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=electricity" target="_blank">
                 <div style="color:red">
 				        <p style="padding-top:40px; font-size: 0.9em;">
                      ELECTRICITY
@@ -676,7 +677,7 @@
 				 </a>
               </div>
 			         <div class="col-md-2" style="height :200px;">
-			     <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=zerobalance" target="_blank">
+			     <a id="zerobalanceurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=zerobalance" target="_blank">
                 <div style="color:red">
 				          <p style="padding-top:40px; font-size: 0.9em;">
                      ZEROBALANCE
@@ -702,7 +703,7 @@
                 <div class="row text-center">
                 
                   <div class="col-sm-6 col-md-4 col-lg-4" style="border-right:1px solid #dddddd; height :130px; min-height:130px">
-                    <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=inactive" target="_blank">
+                    <a id="inactiveurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=inactive&&hier=" target="_blank">
                     <p style="padding-top:15px; color:white">
                       INACTIVE
                     </p>
@@ -715,7 +716,7 @@
                   </div>
                   
                   <div class="col-md-2" style="border-right:1px solid #dddddd;height :130px; min-height:130px">
-                  <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=switchedoff" target="_blank">
+                  <a id="switchedoffurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=switchedoff" target="_blank">
                     <p style="padding-top:15px; color:white">
                       SWITCHED OFF
                     </p>
@@ -727,7 +728,7 @@
                     </a>
                   </div>
                   <div class="col-md-2" style="border-right:1px solid #dddddd; height :130px; min-height:130px">
-                   <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=blg" target="_blank">
+                   <a id="blgurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=blg" target="_blank">
                    <p style="padding-top:15px; color:white">
                       BLG
                     </p>
@@ -738,7 +739,7 @@
                     </a>
                   </div>
                   <div class="col-md-2" style="border-right:1px solid #dddddd; height :130px; min-height:130px">
-                  <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=cadangan" target="_blank">
+                  <a id="cadanganurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=cadangan" target="_blank">
                      <p style="padding-top:15px; color:white">
                       CADANGAN
                     </p>
@@ -749,7 +750,7 @@
                     </a>
                   </div>
                   <div class="col-md-2">
-                  <a href = "${pageContext.request.contextPath}TidDetail?terminalStatus=forcemajeure" target="_blank">
+                  <a id="forcemajeureurl" href = "${pageContext.request.contextPath}TidDetail?terminalStatus=forcemajeure" target="_blank">
                     <p style="padding-top:15px; color:white">
                       FORCE MAJEURE
                     </p>
@@ -774,13 +775,11 @@
 	<div class="style-selector">
 		<div class="style-selector-container">
 			<h2>Pilih Cabang</h2>
-			<select name="branch"><option value="fluid">Fluid</option>
-				<option value="boxed">Boxed</option>
-			</select>
-			<h2>Pilih Top Berapa</h2>
-			<select id="number" name="number"><option value="10">10</option>
-				<option value="20">20</option>
-				<option value="40">40</option>
+			<select onchange="updatePage(); href();" name="branch" id = "hier">
+				<option value="ALL">ALL</option>
+				<option value="WJK">WJK</option>
+				<option value="WJB">WJB</option>
+				<option value="WJY">WJY</option>
 			</select>
 			<div class="style-toggle closed">
 				<span aria-hidden="true" class="se7en-gear"></span>
@@ -791,9 +790,34 @@
 	<script
 		src="${pageContext.request.contextPath}static/javascripts/chartli.min.js"></script>
 
-	<script type="text/javascript">
+	<script type="text/javascript">	
+	
+	function href(){
+		$("#inserviceurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=inservice&&hier="+$('#hier option:selected').text());
+		$("#normalurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=normal&&hier="+$('#hier option:selected').text());
+		$("#sleepurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=sleep&&hier="+$('#hier option:selected').text());
+		$("#outofserviceurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=outofservice&&hier="+$('#hier option:selected').text());
+		$("#inprogressurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=inprogress&&hier="+$('#hier option:selected').text());
+		$("#maintenanceurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=maintenance&&hier="+$('#hier option:selected').text());
+		$("#restockurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=restock&&hier="+$('#hier option:selected').text());
+		$("#outofcashurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=outofcash&&hier="+$('#hier option:selected').text());
+		$("#hardwareurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=hardware&&hier="+$('#hier option:selected').text());
+		$("#flmurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=flm&&hier="+$('#hier option:selected').text());
+		$("#commurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=comm&&hier="+$('#hier option:selected').text());
+		$("#infrastructureurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=infrastructure&&hier="+$('#hier option:selected').text());
+		$("#electricityurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=electricity&&hier="+$('#hier option:selected').text());
+		$("#zerobalanceurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=zerobalance&&hier="+$('#hier option:selected').text());
+		$("#inactiveurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=inactive&&hier="+$('#hier option:selected').text());
+		$("#switchedoffurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=switchedoff&&hier="+$('#hier option:selected').text());
+		$("#blgurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=blg&&hier="+$('#hier option:selected').text());
+		$("#cadanganurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=cadangan&&hier="+$('#hier option:selected').text());
+		$("#forcemajeureurl").attr("href", "${pageContext.request.contextPath}TidDetail?terminalStatus=forcemajeure&&hier="+$('#hier option:selected').text());
+	}
+	
+	
 	function updatePage() {
-		$.getJSON("updateDataBox", function(data) {
+		var x = $('#hier option:selected').text();
+		$.getJSON("updateDataBox?hierarchy="+x, function(data) {
 			$("#devicetotal").text(data[0].devicetotal);
 			$("#inservice").text(data[0].inservice);
 			$("#normal").text(data[0].normal);
